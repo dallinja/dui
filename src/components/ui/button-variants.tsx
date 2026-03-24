@@ -29,10 +29,20 @@ export const buttonVariants = cva(
           'size-7 rounded-[min(var(--radius-md),12px)] in-data-[slot=button-group]:rounded-lg',
         'icon-lg': 'size-9',
       },
+      fullWidth: {
+        false: '',
+        true: 'w-full',
+      },
+      rounded: {
+        false: '',
+        true: 'rounded-full',
+      },
     },
     defaultVariants: {
       variant: 'default',
       size: 'default',
+      fullWidth: false,
+      rounded: false,
     },
   },
 )
