@@ -22,11 +22,21 @@ const buttonGroupVariants = cva(
   },
 )
 
+interface ButtonGroupProps
+  extends React.ComponentProps<'div'>,
+    VariantProps<typeof buttonGroupVariants> {
+  /** The layout direction of the button group. */
+  orientation?: 'horizontal' | 'vertical'
+}
+
+/**
+ * Groups multiple buttons together with connected borders and spacing.
+ */
 function ButtonGroup({
   className,
   orientation,
   ...props
-}: React.ComponentProps<'div'> & VariantProps<typeof buttonGroupVariants>) {
+}: ButtonGroupProps) {
   return (
     <div
       role="group"
@@ -38,6 +48,9 @@ function ButtonGroup({
   )
 }
 
+/**
+ * A non-interactive text segment within a ButtonGroup. Use the `render` prop to change the underlying element.
+ */
 function ButtonGroupText({
   className,
   render,
@@ -61,6 +74,9 @@ function ButtonGroupText({
   })
 }
 
+/**
+ * A visual divider between items in a ButtonGroup.
+ */
 function ButtonGroupSeparator({
   className,
   orientation = 'vertical',
